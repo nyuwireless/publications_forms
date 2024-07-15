@@ -1,0 +1,93 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Publication Classification Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            line-height: 1.6;
+        }
+        h1 {
+            text-align: center;
+        }
+        p {
+            margin-bottom: 20px;
+        }
+        .form-section {
+            margin-bottom: 20px;
+        }
+        .form-section p {
+            font-weight: bold;
+        }
+        .form-section div {
+            margin-bottom: 10px;
+        }
+        button {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+    <script>
+        // Save form data to local storage
+        function saveFormData() {
+            var formData = {};
+            var form = document.forms[0];
+            for (var i = 0; i < form.elements.length; i++) {
+                var element = form.elements[i];
+                if (element.type === 'checkbox' || element.type === 'text') {
+                    formData[element.name] = element.type === 'checkbox' ? element.checked : element.value;
+                }
+            }
+            localStorage.setItem(form.id, JSON.stringify(formData));
+        }
+
+        // Load form data from local storage
+        function loadFormData() {
+            var formData = JSON.parse(localStorage.getItem(document.forms[0].id));
+            if (formData) {
+                var form = document.forms[0];
+                for (var i = 0; i < form.elements.length; i++) {
+                    var element = form.elements[i];
+                    if (element.type === 'checkbox' || element.type === 'text') {
+                        if (element.type === 'checkbox') {
+                            element.checked = formData[element.name] || false;
+                        } else {
+                            element.value = formData[element.name] || '';
+                        }
+                    }
+                }
+            }
+        }
+
+        // Save form data every 5 seconds
+        setInterval(saveFormData, 5000);
+
+        // Load form data when the page loads
+        window.onload = loadFormData;
+    </script>
+</head>
+<body>
+    <h1>Publication Classification Form</h1>
+    <p>The purpose of this form is to classify all publications for NYU Wireless's updated publication library. Each research paper should be classified by one or more of our 6 overarching research areas: Wireless Communications and Sensing; AI/ML in Wireless; Applications; Circuits and Devices; Networking, Edge Computing, and Security; Testbeds and Prototypes. If the title listed is not something that should be included in the NYU Wireless publication database then please select "Do not include".</p>
+    <p>The "Other" checkbox can be used to further classify each research paper if one or more of the 6 research areas does not provide a specific enough classification. On the front-end of the Publication Library application, users will be able to use a keyword search feature; entries to this "Other" category will be linked to this keyword search feature. Please enter any inputs to this checkbox in comma separated format ex: "sustainability, mmwave, latency" etc.</p>
+    <form id="David_Goodman_2024-07-12" action="https://vast-cove-80696-89b83cdd5b75.herokuapp.com/submit" method="post">
+        <input type="hidden" name="form_id" value="David_Goodman_2024-07-12">
+        <div class='form-section'><p>a Look Back 10 and 25 voLuMes ago</p><label><input type="checkbox" name="question_0" value="Wireless Communications and Sensing"> Wireless Communications and Sensing</label><br><label><input type="checkbox" name="question_0" value="Applications"> Applications</label><br><label><input type="checkbox" name="question_0" value="Networking Edge Computing and Security"> Networking Edge Computing and Security</label><br><label><input type="checkbox" name="question_0" value="Testbeds and Prototypes"> Testbeds and Prototypes</label><br><label><input type="checkbox" name="question_0" value="Artificial Intelligence and Machine Learning in Wireless"> Artificial Intelligence and Machine Learning in Wireless</label><br><label><input type="checkbox" name="question_0" value="Circuits and Devices"> Circuits and Devices</label><br><label><input type="checkbox" name="question_0" value="Do not include"> Do not include</label><br><label><input type="checkbox" name="question_0" value="other"> Other: <input type="text" name="other_0"></label><br></div><div class='form-section'><p>Systems and methods for monitoring endoluminal valve formation</p><label><input type="checkbox" name="question_1" value="Wireless Communications and Sensing"> Wireless Communications and Sensing</label><br><label><input type="checkbox" name="question_1" value="Applications"> Applications</label><br><label><input type="checkbox" name="question_1" value="Networking Edge Computing and Security"> Networking Edge Computing and Security</label><br><label><input type="checkbox" name="question_1" value="Testbeds and Prototypes"> Testbeds and Prototypes</label><br><label><input type="checkbox" name="question_1" value="Artificial Intelligence and Machine Learning in Wireless"> Artificial Intelligence and Machine Learning in Wireless</label><br><label><input type="checkbox" name="question_1" value="Circuits and Devices"> Circuits and Devices</label><br><label><input type="checkbox" name="question_1" value="Do not include"> Do not include</label><br><label><input type="checkbox" name="question_1" value="other"> Other: <input type="text" name="other_1"></label><br></div><div class='form-section'><p>Probability and stochastic processes: a friendly introduction for electrical and computer engineers</p><label><input type="checkbox" name="question_2" value="Wireless Communications and Sensing"> Wireless Communications and Sensing</label><br><label><input type="checkbox" name="question_2" value="Applications"> Applications</label><br><label><input type="checkbox" name="question_2" value="Networking Edge Computing and Security"> Networking Edge Computing and Security</label><br><label><input type="checkbox" name="question_2" value="Testbeds and Prototypes"> Testbeds and Prototypes</label><br><label><input type="checkbox" name="question_2" value="Artificial Intelligence and Machine Learning in Wireless"> Artificial Intelligence and Machine Learning in Wireless</label><br><label><input type="checkbox" name="question_2" value="Circuits and Devices"> Circuits and Devices</label><br><label><input type="checkbox" name="question_2" value="Do not include"> Do not include</label><br><label><input type="checkbox" name="question_2" value="other"> Other: <input type="text" name="other_2"></label><br></div><div class='form-section'><p>Implant delivery system and implants</p><label><input type="checkbox" name="question_3" value="Wireless Communications and Sensing"> Wireless Communications and Sensing</label><br><label><input type="checkbox" name="question_3" value="Applications"> Applications</label><br><label><input type="checkbox" name="question_3" value="Networking Edge Computing and Security"> Networking Edge Computing and Security</label><br><label><input type="checkbox" name="question_3" value="Testbeds and Prototypes"> Testbeds and Prototypes</label><br><label><input type="checkbox" name="question_3" value="Artificial Intelligence and Machine Learning in Wireless"> Artificial Intelligence and Machine Learning in Wireless</label><br><label><input type="checkbox" name="question_3" value="Circuits and Devices"> Circuits and Devices</label><br><label><input type="checkbox" name="question_3" value="Do not include"> Do not include</label><br><label><input type="checkbox" name="question_3" value="other"> Other: <input type="text" name="other_3"></label><br></div><div class='form-section'><p>Catheter with balloon and imaging</p><label><input type="checkbox" name="question_4" value="Wireless Communications and Sensing"> Wireless Communications and Sensing</label><br><label><input type="checkbox" name="question_4" value="Applications"> Applications</label><br><label><input type="checkbox" name="question_4" value="Networking Edge Computing and Security"> Networking Edge Computing and Security</label><br><label><input type="checkbox" name="question_4" value="Testbeds and Prototypes"> Testbeds and Prototypes</label><br><label><input type="checkbox" name="question_4" value="Artificial Intelligence and Machine Learning in Wireless"> Artificial Intelligence and Machine Learning in Wireless</label><br><label><input type="checkbox" name="question_4" value="Circuits and Devices"> Circuits and Devices</label><br><label><input type="checkbox" name="question_4" value="Do not include"> Do not include</label><br><label><input type="checkbox" name="question_4" value="other"> Other: <input type="text" name="other_4"></label><br></div><div class='form-section'><p>Assessment of varicose vein ablation via imaging or functional measurement analysis</p><label><input type="checkbox" name="question_5" value="Wireless Communications and Sensing"> Wireless Communications and Sensing</label><br><label><input type="checkbox" name="question_5" value="Applications"> Applications</label><br><label><input type="checkbox" name="question_5" value="Networking Edge Computing and Security"> Networking Edge Computing and Security</label><br><label><input type="checkbox" name="question_5" value="Testbeds and Prototypes"> Testbeds and Prototypes</label><br><label><input type="checkbox" name="question_5" value="Artificial Intelligence and Machine Learning in Wireless"> Artificial Intelligence and Machine Learning in Wireless</label><br><label><input type="checkbox" name="question_5" value="Circuits and Devices"> Circuits and Devices</label><br><label><input type="checkbox" name="question_5" value="Do not include"> Do not include</label><br><label><input type="checkbox" name="question_5" value="other"> Other: <input type="text" name="other_5"></label><br></div><div class='form-section'><p>Perioperative feedback in endovascular aneurysm repair using physiological measurements</p><label><input type="checkbox" name="question_6" value="Wireless Communications and Sensing"> Wireless Communications and Sensing</label><br><label><input type="checkbox" name="question_6" value="Applications"> Applications</label><br><label><input type="checkbox" name="question_6" value="Networking Edge Computing and Security"> Networking Edge Computing and Security</label><br><label><input type="checkbox" name="question_6" value="Testbeds and Prototypes"> Testbeds and Prototypes</label><br><label><input type="checkbox" name="question_6" value="Artificial Intelligence and Machine Learning in Wireless"> Artificial Intelligence and Machine Learning in Wireless</label><br><label><input type="checkbox" name="question_6" value="Circuits and Devices"> Circuits and Devices</label><br><label><input type="checkbox" name="question_6" value="Do not include"> Do not include</label><br><label><input type="checkbox" name="question_6" value="other"> Other: <input type="text" name="other_6"></label><br></div><div class='form-section'><p>Devices and methods for imaging and delivering a fertilized egg into a woman's uterus</p><label><input type="checkbox" name="question_7" value="Wireless Communications and Sensing"> Wireless Communications and Sensing</label><br><label><input type="checkbox" name="question_7" value="Applications"> Applications</label><br><label><input type="checkbox" name="question_7" value="Networking Edge Computing and Security"> Networking Edge Computing and Security</label><br><label><input type="checkbox" name="question_7" value="Testbeds and Prototypes"> Testbeds and Prototypes</label><br><label><input type="checkbox" name="question_7" value="Artificial Intelligence and Machine Learning in Wireless"> Artificial Intelligence and Machine Learning in Wireless</label><br><label><input type="checkbox" name="question_7" value="Circuits and Devices"> Circuits and Devices</label><br><label><input type="checkbox" name="question_7" value="Do not include"> Do not include</label><br><label><input type="checkbox" name="question_7" value="other"> Other: <input type="text" name="other_7"></label><br></div><div class='form-section'><p>Wireless communications: future directions</p><label><input type="checkbox" name="question_8" value="Wireless Communications and Sensing"> Wireless Communications and Sensing</label><br><label><input type="checkbox" name="question_8" value="Applications"> Applications</label><br><label><input type="checkbox" name="question_8" value="Networking Edge Computing and Security"> Networking Edge Computing and Security</label><br><label><input type="checkbox" name="question_8" value="Testbeds and Prototypes"> Testbeds and Prototypes</label><br><label><input type="checkbox" name="question_8" value="Artificial Intelligence and Machine Learning in Wireless"> Artificial Intelligence and Machine Learning in Wireless</label><br><label><input type="checkbox" name="question_8" value="Circuits and Devices"> Circuits and Devices</label><br><label><input type="checkbox" name="question_8" value="Do not include"> Do not include</label><br><label><input type="checkbox" name="question_8" value="other"> Other: <input type="text" name="other_8"></label><br></div><div class='form-section'><p>Wireless and mobile communications</p><label><input type="checkbox" name="question_9" value="Wireless Communications and Sensing"> Wireless Communications and Sensing</label><br><label><input type="checkbox" name="question_9" value="Applications"> Applications</label><br><label><input type="checkbox" name="question_9" value="Networking Edge Computing and Security"> Networking Edge Computing and Security</label><br><label><input type="checkbox" name="question_9" value="Testbeds and Prototypes"> Testbeds and Prototypes</label><br><label><input type="checkbox" name="question_9" value="Artificial Intelligence and Machine Learning in Wireless"> Artificial Intelligence and Machine Learning in Wireless</label><br><label><input type="checkbox" name="question_9" value="Circuits and Devices"> Circuits and Devices</label><br><label><input type="checkbox" name="question_9" value="Do not include"> Do not include</label><br><label><input type="checkbox" name="question_9" value="other"> Other: <input type="text" name="other_9"></label><br></div>
+        <button type="submit">Submit</button>
+    </form>
+</body>
+</html>
